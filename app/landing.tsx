@@ -90,7 +90,14 @@ export default function Landing() {
           Generate delicious recipes in seconds with the power of AI!
         </Text>
         <TouchableOpacity
-          onPress={async () => signIn("exp://145.94.199.52:8081")}
+          // onPress={async () => signIn("mychefie://callback")}
+          onPress={async () => {
+            try {
+              await signIn("exp://145.94.159.5:8081");
+            } catch (err) {
+              console.error("Sign-in failed:", err);
+            }
+          }}
           style={styles.button}
         >
           <Text
@@ -125,6 +132,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.PRIMARY,
     padding: 15,
     borderRadius: 15,
-    margin: 20,
+    marginTop: 20,
   },
 });
